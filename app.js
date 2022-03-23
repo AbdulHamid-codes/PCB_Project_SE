@@ -22,7 +22,7 @@ app.post("/admin", function (req, res) {
 });
 
 app.post("/adminpage", function (req, res) {
-  res.sendFile(__dirname + "/admin/adminpage .html");
+  res.sendFile(__dirname + "/admin/adminpage.html");
 });
 
 app.listen(3000, function () {
