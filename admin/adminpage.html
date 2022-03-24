@@ -40,7 +40,7 @@
 
     <!-- Top header  -->
 
-    <div class="top-head pt-1 border">
+    <div class="top-head pt-1 border" >
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-right">
@@ -166,7 +166,7 @@
     </div>
     <!-- Banner Slider  -->
 
-    <div class="carousel-item active">
+    <div class="carousel-item active" id="banner">
       <img
         src="img/players.jpg"
         alt="Los Angeles"
@@ -190,23 +190,17 @@
       <div class="container">
         <div class="row pb-4 text-center">
           <div class="col-md-12">
-            <h2>Manage Player Categories</h2>
+            <h2>
+             <b> Manage Player Categories</b>
+            </h2>
           </div>
         </div>
 
-        <div class="row">
+        <div class="row category-row">
           <div class="col-md-6">
             <h3>Create a Category</h3>
-            <form action="" class="form-floating category-form " method="post">
-                <!-- <label for="create-category">Category Name :</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="create-category"
-                  placeholder="Enter a category name"
-                /> -->
-                
-                <button type="submit" class="btn category-button">
+            <form action="/create-category" class="form-floating category-form " method="post">          
+                <button type="submit" class="btn btn-lg category-button">
                     Create Category
                    </button>
                 </form>
@@ -216,31 +210,31 @@
           <div class="col-md-6">
             <h3>Manage Categories</h3>
             <form action="" class="form-floating category-form " method="post">
-                <!-- <label for="create-category">Category Name :</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="create-category"
-                  placeholder="Enter a category name"
-                /> -->
-                
-                <button type="submit" class="btn category-button">
+               <button type="submit" class="btn btn-lg category-button">
                     Manage Categories
                    </button>
                 </form>
 
           </div>
             
-    
-              
-    
-
         </div>
-         
-
-        
+  
       </div>
     </div>
+
+
+
+
+    
+
+
+    <!-- <label for="create-category">Category Name :</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="create-category"
+                  placeholder="Enter a category name"
+                /> -->
 
     <!-- Upcoming Section  -->
 
@@ -646,7 +640,10 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-3 footer-one">
-            <img src="img/pcb3.webp" alt="Logo" style="width: 90px" />
+            <a href="#">
+              <img src="img/pcb3.webp" alt="Logo" style="width: 90px" />
+            </a>
+            
 
             <p class="pt-4">Official Website for Pakistan Cricket Board.</p>
             <div class="social-icons">

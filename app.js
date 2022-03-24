@@ -28,6 +28,9 @@ app.post("/admin", function (req, res) {
 app.post("/adminpage", function (req, res) {
   res.sendFile(__dirname + "/admin/adminpage.html");
 });
+app.post("/create-category", function (req, res) {
+  res.sendFile(__dirname + "/admin/createCategory.html");
+});
 
 app.listen(3000, function () {
   console.log("Server is running at port 3000");
