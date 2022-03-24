@@ -17,6 +17,10 @@ app.get("/admin", function (req, res) {
   res.sendFile(__dirname + "/admin/login.html");
 });
 
+app.get("/adminpage", function (req, res) {
+  res.sendFile(__dirname + "/admin/adminpage.html");
+});
+
 app.post("/admin", function (req, res) {
   res.sendFile(__dirname + "/admin/login.html");
 });

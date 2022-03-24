@@ -26,9 +26,10 @@ img {width:100%;}
 .social {margin:7px 7px 7px 0px;}
 #social-fb:hover {color: #3B5998;transition:all .25s;}
  #social-tw:hover {color: #4099FF;transition:all .25s;}
- #social-gp:hover {color: #d34836;transition:all .25s;}
- #social-em:hover {color: #f39c12;transition:all .25s;}
+ #social-yt:hover {color: #d34836;transition:all .25s;}
+ #social-ig:hover {color: #f048d9;transition:all .25s;}
 
+ 
  .top_background {
   /* background-color: greenyellow; */
   background-color: #06351f;
@@ -36,6 +37,10 @@ img {width:100%;}
 
  .nav-link{
    color: #fff;
+ }
+
+ .nav-link:hover{
+   color: #8a7532;
  }
 
  .form-inline{
@@ -51,6 +56,11 @@ img {width:100%;}
    background-color: #8a7532;
    border: 1px solid #5f5020;
  }
+ .search-button:hover{
+  background-color: #5f5020;
+  border: 1px solid #8a7532;
+ }
+
 
 
  .used-car-section{
