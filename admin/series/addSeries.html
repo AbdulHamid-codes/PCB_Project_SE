@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Series</title>
+
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+
+    <link href="css/adminpage.css" rel="stylesheet" />
+
+    <!------ Include the above in your HEAD tag ---------->
+  </head>
+  <body>
+    <div class="container category-form">
+      <h2>
+        <b> Add a Series</b>
+      </h2>
+      <form action="/add-series" method="post" style="margin-top: 50px">
+        <label for="series-format">Format :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="series-format"
+          placeholder="ODI, T20, Test ..."
+          required
+          autofocus
+        />
+        <label for="series-host">Host :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="series-host"
+          placeholder="Enter a country name"
+          required
+        />
+
+        <label for="series-start-date">Start Date :</label>
+        <input
+          type="date"
+          class="form-control"
+          id="series-start-date"
+          placeholder=""
+          required
+        />
+
+        <label for="series-end-date">End Date :</label>
+        <input
+          type="date"
+          class="form-control"
+          id="series-end-date"
+          placeholder=""
+          required
+        />
+
+        <button type="submit" class="btn category-form-button">Add</button>
+      </form>
+    </div>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+</html>

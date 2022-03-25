@@ -40,7 +40,7 @@
 
     <!-- Top header  -->
 
-    <div class="top-head pt-1 border" >
+    <div class="top-head pt-1 border">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-right">
@@ -183,15 +183,14 @@
       </div>
     </div>
 
-    
     <!-- manage player categories section -->
 
-    <div class="category-section py-5">
+    <div class="category-section admin-section py-5">
       <div class="container">
         <div class="row pb-4 text-center">
           <div class="col-md-12">
             <h2>
-             <b> Manage Players Categories</b>
+              <b> Manage Players Categories</b>
             </h2>
           </div>
         </div>
@@ -199,19 +198,214 @@
         <div class="row category-row">
           <div class="col-md-6">
             <h3>Create a new Category</h3>
-            <form action="/create-category" class="form-floating category-form " method="get">          
+            <form
+              action="/create-category"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Create Category
+              </button>
+            </form>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Remove an already present Category</h3>
+            <form
+              action="/remove-category"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Remove Category
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="row category-row">
+          <div class="col-md-6">
+            <h3>Allocate Category to a Player</h3>
+            <form
+              action="/allocate-category"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Allocate Category
+              </button>
+            </form>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Remove Player from a Category</h3>
+            <form
+              action="/remove-player-category"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Remove Player
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- manage squad section  -->
+
+    <div class="squads-section admin-section py-5">
+      <div class="container">
+        <div class="row pb-4 text-center">
+          <div class="col-md-12">
+            <h2>
+              <b> Manage Squads</b>
+            </h2>
+          </div>
+        </div>
+
+        <div class="row category-row">
+          <div class="col-md-6">
+            <h3>Create a new Squad</h3>
+            <form
+              action="/create-squad"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Create Squad
+              </button>
+            </form>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Remove an already present Squad</h3>
+            <form
+              action="/remove-squad"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Remove Squad
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="row category-row">
+          <div class="col-md-6">
+            <h3>Add Player to a Squad</h3>
+            <form
+              action="/add-player-squad"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Add Player
+              </button>
+            </form>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Remove Player from a Squad</h3>
+            <form
+              action="/remove-player-squad"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Remove Player
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- manage series section -->
+    <div class="series-section admin-section py-5">
+      <div class="container">
+        <div class="row pb-4 text-center">
+          <div class="col-md-12">
+            <h2>
+              <b> Manage Series</b>
+            </h2>
+          </div>
+        </div>
+
+        <div class="row category-row">
+          <div class="col-md-6">
+            <h3>Add a new Series</h3>
+            <form
+              action="/add-series"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Add Series
+              </button>
+            </form>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Add Match to a Series</h3>
+            <form
+              action="/add-match-to-series"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Add Match
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="row category-row">
+          <div class="col">
+            <h3>Delete a Series</h3>
+            <form
+              action="/delete-series"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Delete Series
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- manage tournament section  -->
+    <!-- <div class="tournaments-section admin-section py-5">
+      <div class="container">
+        <div class="row pb-4 text-center">
+          <div class="col-md-12">
+            <h2>
+             <b> Manage Tournaments</b>
+            </h2>
+          </div>
+        </div>
+
+        <div class="row category-row">
+          <div class="col-md-6">
+            <h3>Create a new Squad</h3>
+            <form action="/create-squad" class="form-floating category-form " method="get">          
                 <button type="submit" class="btn btn-lg category-button">
-                    Create Category
+                    Create Squad
                    </button>
                 </form>
 
           </div>
             
           <div class="col-md-6">
-            <h3>Remove an already present Category</h3>
-            <form action="/remove-category" class="form-floating category-form " method="get">
+            <h3>Remove an already present Squad</h3>
+            <form action="/remove-squad" class="form-floating category-form " method="get">
                <button type="submit" class="btn btn-lg category-button">
-                    Remove Category
+                    Remove Squad
                    </button>
                 </form>
 
@@ -221,18 +415,18 @@
 
         <div class="row category-row">
           <div class="col-md-6">
-            <h3>Allocate Category to a Player</h3>
-            <form action="/allocate-category" class="form-floating category-form " method="get">          
+            <h3>Add Player to a Squad</h3>
+            <form action="/add-player-squad" class="form-floating category-form " method="get">          
                 <button type="submit" class="btn btn-lg category-button">
-                    Allocate Category
+                    Add Player
                    </button>
                 </form>
 
           </div>
             
           <div class="col-md-6">
-            <h3>Remove Player from a Category</h3>
-            <form action="/remove-player-category" class="form-floating category-form " method="get">
+            <h3>Remove Player from a Squad</h3>
+            <form action="/remove-player-squad" class="form-floating category-form " method="get">
                <button type="submit" class="btn btn-lg category-button">
                     Remove Player
                    </button>
@@ -243,13 +437,7 @@
         </div>
   
       </div>
-    </div>
-
-
-
-
-    
-
+    </div> -->
 
     <!-- <label for="create-category">Category Name :</label>
                 <input
@@ -259,401 +447,15 @@
                   placeholder="Enter a category name"
                 /> -->
 
-    <!-- Upcoming Section  -->
-
-    <!-- <div class="upcoming py-5">
-        <div class="container">
-          <div class="row pb-4 text-center">
-            <div class="col-md-12">
-              <h2>Upcoming Series</h2>
-              <p>Get ready to exprience a summer full of cricket!</p>
-            </div>
-          </div>
-          <div class="row text-center">
-            <div class="col-md-3 box border py-4">
-              <div class="box-carimage">
-                <img
-                  src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="box-cartitle">
-                <h4>Mahindra XUV500 2018</h4>
-              </div>
-              <div class="box-carprice">
-                <h6><i class="fa fa-inr"></i>14.0 Lac*</h6>
-              </div>
-              <div class="box-date pb-3">
-                <small>Launch Date: 15 Apr 2018 </small>
-              </div>
-              <button type="button" class="btn btn-outline-danger">
-                Check Price
-              </button>
-            </div>
-            <div class="col-md-3 box border py-4">
-              <div class="box-carimage">
-                <img
-                  src="https://img0.gaadicdn.com/images/car-images/265x110/Tata/Tata-Nexon/047.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="box-cartitle">
-                <h4>Mahindra XUV500 2018</h4>
-              </div>
-              <div class="box-carprice">
-                <h6><i class="fa fa-inr"></i>14.0 Lac*</h6>
-              </div>
-              <div class="box-date pb-3">
-                <small>Launch Date: 15 Apr 2018 </small>
-              </div>
-              <button type="button" class="btn btn-outline-danger">
-                Check Price
-              </button>
-            </div>
-            <div class="col-md-3 box border py-4">
-              <div class="box-carimage">
-                <img
-                  src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="box-cartitle">
-                <h4>Mahindra XUV500 2018</h4>
-              </div>
-              <div class="box-carprice">
-                <h6><i class="fa fa-inr"></i>14.0 Lac*</h6>
-              </div>
-              <div class="box-date pb-3">
-                <small>Launch Date: 15 Apr 2018 </small>
-              </div>
-              <button type="button" class="btn btn-outline-danger">
-                Check Price
-              </button>
-            </div>
-            <div class="col-md-3 box border py-4">
-              <div class="box-carimage">
-                <img
-                  src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="box-cartitle">
-                <h4>Mahindra XUV500 2018</h4>
-              </div>
-              <div class="box-carprice">
-                <h6><i class="fa fa-inr"></i>14.0 Lac*</h6>
-              </div>
-              <div class="box-date pb-3">
-                <small>Launch Date: 15 Apr 2018 </small>
-              </div>
-              <button type="button" class="btn btn-outline-danger">
-                Check Price
-              </button>
-            </div>
-          </div>
-          <div class="row text-center pt-4">
-            <div class="col-md-12">
-              <button type="button" class="btn btn-danger">
-                View All Upcoming Cars
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-   -->
-    <!-- popular section  -->
-
-    <!-- <div class="test-cont">
-      <div class="popular py-5">
-        <div class="container">
-          <div class="row pb-4 text-center">
-            <div class="col-md-12">
-              <h2>Popular car in India</h2>
-              <p>
-                Pre-booked lessons, on-call lessons are Not refundable unless
-                cancelled more than 24 hours.
-              </p>
-            </div>
-          </div>
-
-          <div class="row text-center">
-            <div class="col-md-3 box border py-4 card-back">
-              <div class="box-carimage">
-                <img
-                  src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="box-cartitle">
-                <h4>Mahindra XUV500 2018</h4>
-              </div>
-              <div class="box-carprice">
-                <h6><i class="fa fa-inr"></i>14.0 Lac*</h6>
-              </div>
-              <div class="box-date pb-3">
-                <small>Launch Date: 15 Apr 2018 </small>
-              </div>
-              <button type="button" class="btn btn-outline-danger">
-                Check Price
-              </button>
-            </div>
-            <div class="col-md-3 box border py-4 card-back">
-              <div class="box-carimage">
-                <img
-                  src="https://img0.gaadicdn.com/images/car-images/265x110/Tata/Tata-Nexon/047.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="box-cartitle">
-                <h4>Mahindra XUV500 2018</h4>
-              </div>
-              <div class="box-carprice">
-                <h6><i class="fa fa-inr"></i>14.0 Lac*</h6>
-              </div>
-              <div class="box-date pb-3">
-                <small>Launch Date: 15 Apr 2018 </small>
-              </div>
-              <button type="button" class="btn btn-outline-danger">
-                Check Price
-              </button>
-            </div>
-            <div class="col-md-3 box border py-4 card-back">
-              <div class="box-carimage">
-                <img
-                  src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="box-cartitle">
-                <h4>Mahindra XUV500 2018</h4>
-              </div>
-              <div class="box-carprice">
-                <h6><i class="fa fa-inr"></i>14.0 Lac*</h6>
-              </div>
-              <div class="box-date pb-3">
-                <small>Launch Date: 15 Apr 2018 </small>
-              </div>
-              <button type="button" class="btn btn-outline-danger">
-                Check Price
-              </button>
-            </div>
-            <div class="col-md-3 box border py-4 card-back">
-              <div class="box-carimage">
-                <img
-                  src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="box-cartitle">
-                <h4>Mahindra XUV500 2018</h4>
-              </div>
-              <div class="box-carprice">
-                <h6><i class="fa fa-inr"></i>14.0 Lac*</h6>
-              </div>
-              <div class="box-date pb-3">
-                <small>Launch Date: 15 Apr 2018 </small>
-              </div>
-              <button type="button" class="btn btn-outline-danger">
-                Check Price
-              </button>
-            </div>
-          </div>
-          <div class="row text-center pt-4">
-            <div class="col-md-12">
-              <button type="button" class="btn btn-danger">
-                View All Upcoming Cars
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- help section  -->
-
-    <!-- <div class="help py-5">
-      <div class="container py-5">
-        <div class="row text-center">
-          <div class="col-md-12">
-            <i class="fa fa-headphones fa-3x"></i>
-            <h3>How can we help you?</h3>
-            <p>
-              Fusce imper diet odio sit amet erat conse quat, eget eleme nmper
-              diet odio sit amet erat atege tpurc surus lorem iandit vehi culas.
-            </p>
-            <button type="button" class="btn btn-danger">
-              Ask the Question
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- find used car section  -->
-
-    <!-- <div class="location py-5 used-car-section">
-      <div class="container">
-        <div class="row pb-4 text-center">
-          <div class="col-md-12">
-            <h2>Find Used Cars in</h2>
-            <p>
-              Pre-booked lessons, on-call lessons are Not refundable unless
-              cancelled more than 24 hours.
-            </p>
-          </div>
-        </div>
-
-        <div class="row text-center find-section-row">
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> New Delhi
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Banglore
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Jaipur
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Chennai
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Mumbai
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Banglore
-            </button>
-          </div>
-        </div>
-        <div class="row text-center find-section-row">
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> New Delhi
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Banglore
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Jaipur
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Chennai
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Mumbai
-            </button>
-          </div>
-          <div class="col-md-2 box border py-4">
-            <button type="button" class="btn btn-light">
-              <i class="fa fa-map-marker fa-1x"></i> Banglore
-            </button>
-          </div>
-        </div>
-        <div class="row text-center pt-4">
-          <div class="col-md-12">
-            <button type="button" class="btn btn-danger">
-              View All Upcoming Cars
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- offer section  -->
-
-    <!-- <div class="offer my-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 py-3 border">
-            <div class="row">
-              <div class="col-md-3 mt-2">
-                <img
-                  src="http://klbtheme.com/froday/wp-content/uploads/2018/02/tablet.png"
-                />
-              </div>
-              <div class="col-md-9">
-                <h5>Deals & Coupons</h5>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
-                  aspernatur
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 py-3 border">
-            <div class="row">
-              <div class="col-md-3 mt-2">
-                <img
-                  src="http://klbtheme.com/froday/wp-content/uploads/2018/02/online-shop-6.png"
-                />
-              </div>
-              <div class="col-md-9">
-                <h5>Find Best Offers</h5>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
-                  aspernatur
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 py-3 border">
-            <div class="row">
-              <div class="col-md-3 mt-2">
-                <img
-                  src="http://klbtheme.com/froday/wp-content/uploads/2018/02/money.png"
-                />
-              </div>
-              <div class="col-md-9">
-                <h5>Save Money</h5>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
-                  aspernatur
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <!-- section before footer  -->
 
     <div class="cta-sektion border py-3">
       <div class="container">
-        <div class="row">
-          <div class="col-md-9 col-sm-9 col-xs-12">
-            <h3>
-              <span class="glyphicon glyphicon-cog"></span>
-              <b>Switch to Admin
-            </h3>
-          </div>
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <form action="/admin" method="post">
-              <button type="submit" class="btn bg-danger twhite">
-                Go to Admin
-              </button>
-            </form>
-            
-          </div>
-        </div>
+        <form action="#" method="post">
+          <button type="submit" class="btn category-form-button">
+            Back to Top
+          </button>
+        </form>
       </div>
     </div>
 
@@ -666,7 +468,6 @@
             <a href="#">
               <img src="img/pcb3.webp" alt="Logo" style="width: 90px" />
             </a>
-            
 
             <p class="pt-4">Official Website for Pakistan Cricket Board.</p>
             <div class="social-icons">
@@ -681,17 +482,12 @@
               ></a>
 
               <a href="https://www.instagram.com/therealpcb/"
-                ><i
-                  id="social-ig"
-                  class="fa fa-instagram fa-3x social"
-                ></i
+                ><i id="social-ig" class="fa fa-instagram fa-3x social"></i
               ></a>
-              
-              <a href="https://www.youtube.com/channel/UCiWrjBhlICf_L_RK5y6Vrxw/videos"
-                ><i
-                  id="social-yt"
-                  class="fa fa-youtube-square fa-3x social"
-                ></i
+
+              <a
+                href="https://www.youtube.com/channel/UCiWrjBhlICf_L_RK5y6Vrxw/videos"
+                ><i id="social-yt" class="fa fa-youtube-square fa-3x social"></i
               ></a>
             </div>
           </div>
