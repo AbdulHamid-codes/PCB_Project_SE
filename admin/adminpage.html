@@ -191,15 +191,15 @@
         <div class="row pb-4 text-center">
           <div class="col-md-12">
             <h2>
-             <b> Manage Player Categories</b>
+             <b> Manage Players Categories</b>
             </h2>
           </div>
         </div>
 
         <div class="row category-row">
           <div class="col-md-6">
-            <h3>Create a Category</h3>
-            <form action="/create-category" class="form-floating category-form " method="post">          
+            <h3>Create a new Category</h3>
+            <form action="/create-category" class="form-floating category-form " method="get">          
                 <button type="submit" class="btn btn-lg category-button">
                     Create Category
                    </button>
@@ -208,10 +208,33 @@
           </div>
             
           <div class="col-md-6">
-            <h3>Manage Categories</h3>
-            <form action="" class="form-floating category-form " method="post">
+            <h3>Remove an already present Category</h3>
+            <form action="/remove-category" class="form-floating category-form " method="get">
                <button type="submit" class="btn btn-lg category-button">
-                    Manage Categories
+                    Remove Category
+                   </button>
+                </form>
+
+          </div>
+            
+        </div>
+
+        <div class="row category-row">
+          <div class="col-md-6">
+            <h3>Allocate Category to a Player</h3>
+            <form action="/allocate-category" class="form-floating category-form " method="get">          
+                <button type="submit" class="btn btn-lg category-button">
+                    Allocate Category
+                   </button>
+                </form>
+
+          </div>
+            
+          <div class="col-md-6">
+            <h3>Remove Player from a Category</h3>
+            <form action="/remove-player-category" class="form-floating category-form " method="get">
+               <button type="submit" class="btn btn-lg category-button">
+                    Remove Player
                    </button>
                 </form>
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Category</title>
+    <title>Allocate Category to a Player</title>
 
     <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -19,19 +19,35 @@
   <body>
     <div class="container category-form">
       <h2>
-        <b> Create a Category</b>
+        <b> Allocate Category to a Player</b>
       </h2>
-      <form action="/create-category" method="post" style="margin-top: 50px">
-        <label for="category-input">Category Name :</label>
+      <form action="/allocate-category" method="post" style="margin-top: 50px">
+        <label for="player-name-input">Player's Name :</label>
         <input
           type="text"
-          class="form-control autofocus"
-          id="category-input"
-          placeholder="Enter a category name"
+          class="form-control"
+          id="player-name-input"
+          placeholder="Enter a player name"
           autofocus
         />
 
-        <button type="submit" class="btn category-form-button">Create</button>
+        <label for="player-name-input">Player's Shirt Number :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="player-name-input"
+          placeholder="Enter a player shirt number"
+        />
+
+        <label for="category-input">Category Name :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="category-input"
+          placeholder="Enter a category name"
+        />
+
+        <button type="submit" class="btn category-form-button">Allocate</button>
       </form>
     </div>
 

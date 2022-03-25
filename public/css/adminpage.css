@@ -86,7 +86,7 @@ img {width:100%;}
 
 .category-section{
     text-align: center;
-    height: 500px;
+    height: 800px;
     
     margin: 50px auto 0px;
 
@@ -97,12 +97,12 @@ img {width:100%;}
 }
 
 
-#create-category{
+.form-control{
     width: 400px;
     margin: auto;
     margin-bottom: 20px;
 }
-.create-category-form{
+.category-form{
   margin-top: 100px;
   text-align: center;
 
@@ -112,7 +112,7 @@ img {width:100%;}
     color: #8a7532;
     background-color: #fff;
     border: 1px solid #8a7532;
-    margin-top: 20px;
+
 }
 
 .category-button:hover{

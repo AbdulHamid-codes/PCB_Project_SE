@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Category</title>
+    <title>Remove Category</title>
 
     <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -19,19 +19,19 @@
   <body>
     <div class="container category-form">
       <h2>
-        <b> Create a Category</b>
+        <b> Remove a Category</b>
       </h2>
-      <form action="/create-category" method="post" style="margin-top: 50px">
+      <form action="/remove-category" method="post" style="margin-top: 50px">
         <label for="category-input">Category Name :</label>
         <input
           type="text"
-          class="form-control autofocus"
+          class="form-control"
           id="category-input"
           placeholder="Enter a category name"
           autofocus
         />
 
-        <button type="submit" class="btn category-form-button">Create</button>
+        <button type="submit" class="btn category-form-button">Remove</button>
       </form>
     </div>
 
