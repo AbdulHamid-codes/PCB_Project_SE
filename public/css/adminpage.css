@@ -84,7 +84,7 @@ img {width:100%;}
  
 /* Category  */
 
-.category-section{
+.admin-section{
     text-align: center;
     height: 800px;
     
@@ -133,6 +133,11 @@ img {width:100%;}
   border: 1px solid #8a7532;
 }
 
+/* manage squads section  */
+.squads-section , .tournaments-section{
+  background-color: #e6e6e6;
+}
+
 
 /* .btn-outline-danger:hover{
     background-color: #8a7532;
@@ -153,6 +158,9 @@ img {width:100%;}
    background-color: #06351f;
   }
 
+  .cta-sektion{
+    text-align: center;
+  }
 
 
  .test-cont{
