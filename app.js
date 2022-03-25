@@ -44,6 +44,7 @@ app.get("/players", function(req, res){
         res.json(players);
   });
 });
+
 app.get("/squads", function(req, res){
   // create an schema
   var squadSchema = new mongoose.Schema({
@@ -103,7 +104,6 @@ app.get("/remove-player-category", function (req, res) {
 app.post("/remove-player-category", function (req, res) {
   res.send("<h2>PLAYER HAS BEEN REMOVED FROM THE CATEGORY.</h2>");
 });
-
 
 app.listen(3000, function () {
   console.log("Server is running at port 3000");
