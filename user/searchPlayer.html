@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Player to Squad</title>
+
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+
+    <link href="css/adminpage.css" rel="stylesheet" />
+
+    <!------ Include the above in your HEAD tag ---------->
+  </head>
+  <body>
+    <div class="container category-form">
+      <h2>
+        <b> Search a Player</b>
+      </h2>
+      <form action="/searchPlayer" method="post" style="margin-top: 50px">
+        <label for="player-input">Player's Name :</label>
+        <input
+          name = "name"
+          type="text"
+          class="form-control"
+          id="player-input"
+          placeholder="Enter a player name"
+        
+          autofocus
+        />
+        <label for="player-shirt-input">Player's Shirt Number :</label>
+        <input
+          name = "shirtNo"
+          type="text"
+          class="form-control"
+          id="player-shirt-input"
+          placeholder="Enter a shirt number"
+        
+        />
+        <label for="squad-input">Player's Region :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="squad-input"
+          placeholder="Enter Region"
+         
+        />
+
+        <button type="submit" class="btn category-form-button">Search</button>
+      </form>
+    </div>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+</html>

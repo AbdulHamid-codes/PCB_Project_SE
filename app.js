@@ -2,21 +2,23 @@
 
 const express = require("express");
 const request = require("request");
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const { json } = require("express/lib/response");
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.set('view engine', 'ejs');
 
 // Database connection
-// mongoose.connect("mongodb://127.0.0.1/PCB_db", { useNewUrlParser: true });
-// mongoose.connection
-//   .once("open", () => console.log('Database Connected"'))
-//   .on("error", (error) => {
-//     console.log("Your error: " + error);
-//   });
+mongoose.connect("mongodb://127.0.0.1/PCB_db", { useNewUrlParser: true });
+mongoose.connection
+  .once("open", () => console.log('Database Connected"'))
+  .on("error", (error) => {
+    console.log("Your error: " + error);
+  });
 
 // homepage
 app.get("/", function (req, res) {
@@ -28,7 +30,6 @@ app.get("/admin", function (req, res) {
   res.sendFile(__dirname + "/admin/login.html");
 });
 
-<<<<<<< HEAD
 app.get("/players", function(req, res){
   // create an schema
   var playerSchema = new mongoose.Schema({
@@ -48,13 +49,45 @@ app.get("/players", function(req, res){
   });
 });
 
+app.get("/searchPlayer", function(req, res){
+  res.sendFile(__dirname + "/user/searchPlayer.html");
+});
+
+app.post("/searchPlayer", function (req, res) {
+
+  var name = req.body.name;
+  var shirtNo = req.body.shirtNo;
+
+
+  // create an schema
+  var playerSchema = new mongoose.Schema({
+    name: String,
+    shirtNo: Number,
+    matchesPlaye: Number,
+    totalRuns: Number,
+    totalWickets: Number
+    });
+  
+    var playerModel=mongoose.model('players', playerSchema);
+    playerModel.find((err, players) => {
+      if (err)
+          console.log(err)
+      else
+          res.json(players);
+    });
+
+
+  //res.sendFile(__dirname + "/admin/login.html");
+});
+
+
 app.get("/squads", function(req, res){
   // create an schema
   var squadSchema = new mongoose.Schema({
     NoOfPlayers: Number,
     type: String,
     players: players
-  });
+  })
 
   var squadModel=mongoose.model('squads', playerSchema);
   playerModel.find((err, squads) => {
@@ -62,11 +95,11 @@ app.get("/squads", function(req, res){
         console.log(err)
     else
         res.json(squads);
-  });
-=======
+  })
+});
+
 app.post("/admin", function (req, res) {
   res.sendFile(__dirname + "/admin/login.html");
->>>>>>> ec6ca02748cad4ca806149d7f48ad8d710eec741
 });
 
 //admin page
@@ -112,8 +145,7 @@ app.post("/remove-player-category", function (req, res) {
   res.send("<h2>PLAYER HAS BEEN REMOVED FROM THE CATEGORY.</h2>");
 });
 
-<<<<<<< HEAD
-=======
+
 //squad
 app.get("/create-squad", function (req, res) {
   res.sendFile(__dirname + "/admin/squad/addSquad.html");
@@ -161,11 +193,11 @@ app.post("/add-match-to-series", function (req, res) {
 app.get("/delete-series", function (req, res) {
   res.sendFile(__dirname + "/admin/series/deleteSeries.html");
 });
+
 app.post("/delete-series", function (req, res) {
   res.send("<h2>THE SERIES HAS BEEN DELETED.</h2>");
 });
 
->>>>>>> ec6ca02748cad4ca806149d7f48ad8d710eec741
 app.listen(3000, function () {
   console.log("Server is running at port 3000");
 });
