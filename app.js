@@ -45,7 +45,10 @@ app.get("/players", function(req, res){
     if (err)
         console.log(err)
     else
-        res.json(players);
+        //res.json(players);
+        //res.render("playersD.ejs", {player: json(players)});
+        console.log(players);
+        res.render("playersD.ejs", {player: players});
   });
 });
 
@@ -57,7 +60,25 @@ app.post("/searchPlayer", function (req, res) {
 
   var name = req.body.name;
   var shirtNo = req.body.shirtNo;
+  var region = req.body.region;
 
+  console.log(name);
+  console.log(shirtNo);
+  console.log(region);
+ 
+  let p = {};
+
+  if(name){
+    p['name'] = name;
+  }
+  if(shirtNo){
+    p['shirtNo'] = shirtNo;
+  }
+  if(region){
+    p['region'] = region;
+  }
+
+  console.log("p object",p)
 
   // create an schema
   var playerSchema = new mongoose.Schema({
@@ -69,11 +90,15 @@ app.post("/searchPlayer", function (req, res) {
     });
   
     var playerModel=mongoose.model('players', playerSchema);
-    playerModel.find((err, players) => {
+
+    //playerModel.find( {'name': 'Baber Azam'}, (err, players) => {
+      playerModel.find( p, (err, players) => {
       if (err)
           console.log(err)
       else
-          res.json(players);
+          // res.json(players);
+          //console.log(players);
+        res.render("searchPlayerD.ejs", {player: players});
     });
 
 
