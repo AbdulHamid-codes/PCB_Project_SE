@@ -8,6 +8,7 @@ const { json } = require("express/lib/response");
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -25,14 +26,10 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/homePage.html");
 });
 
-//admin login
-app.get("/admin", function (req, res) {
-  res.sendFile(__dirname + "/admin/login.html");
-});
+/*---------Players Displya and Search----------------*/
 
-app.get("/players", function(req, res){
-  // create an schema
-  var playerSchema = new mongoose.Schema({
+// Player schema for data retrieval
+var playerSchema = new mongoose.Schema({
   name: String,
   shirtNo: Number,
   matchesPlaye: Number,
@@ -40,13 +37,15 @@ app.get("/players", function(req, res){
   totalWickets: Number
   });
 
-  var playerModel=mongoose.model('players', playerSchema);
+var playerModel=mongoose.model('players', playerSchema);
+
+app.get("/players", function(req, res){
+  // create an schema
+
   playerModel.find((err, players) => {
     if (err)
         console.log(err)
     else
-        //res.json(players);
-        //res.render("playersD.ejs", {player: json(players)});
         console.log(players);
         res.render("playersD.ejs", {player: players});
   });
@@ -80,131 +79,199 @@ app.post("/searchPlayer", function (req, res) {
 
   console.log("p object",p)
 
-  // create an schema
-  var playerSchema = new mongoose.Schema({
-    name: String,
-    shirtNo: Number,
-    matchesPlaye: Number,
-    totalRuns: Number,
-    totalWickets: Number
-    });
-  
-    var playerModel=mongoose.model('players', playerSchema);
-
-    //playerModel.find( {'name': 'Baber Azam'}, (err, players) => {
-      playerModel.find( p, (err, players) => {
+  playerModel.find( p, (err, players) => {
       if (err)
           console.log(err)
       else
-          // res.json(players);
-          //console.log(players);
+        // res.json(players);
+        //console.log(players);
         res.render("searchPlayerD.ejs", {player: players});
     });
 
-
-  //res.sendFile(__dirname + "/admin/login.html");
 });
 
+/*--------------Squads Display------------------------*/
 
-app.get("/squads", function(req, res){
-  // create an schema
-  var squadSchema = new mongoose.Schema({
+var squadSchema = new mongoose.Schema({
     NoOfPlayers: Number,
     type: String,
-    players: players
-  })
+    players: [{name: String, shirt: Number, matches: Number, runs: Number, score: Number}]
+  });
 
-  var squadModel=mongoose.model('squads', playerSchema);
-  playerModel.find((err, squads) => {
+var squadModel=mongoose.model('squads', squadSchema);
+
+app.get("/squads", function(req, res){
+
+  squadModel.find((err, sqds) => {
     if (err)
         console.log(err)
     else
-        res.json(squads);
-  })
+        console.log(sqds);
+        res.render("squadsD.ejs", {squads: sqds});
+  });
 });
 
-app.post("/admin", function (req, res) {
+/*--------------Series Display------------------*/
+var seriesSchema = new mongoose.Schema({
+  format: String,
+  host: String,
+  result: String, 
+  manOfTheSeries: String,
+  startDate:  Date, 
+  endDate: Date,
+  matches: [{venue: String, time: String, date: Date}]
+});
+
+var seriesModel=mongoose.model('series', seriesSchema);
+app.get("/series", function(req, res){
+  seriesModel.find((err, sres) => {
+    if (err)
+        console.log(err)
+    else
+        console.log(sres);
+        res.render("seriesD.ejs", {series: sres});
+  });
+});
+
+/*------------------Tournament Display---------------------*/
+var tournamentSchema = new mongoose.Schema({
+  startDate: Date,
+  endDate: Date,
+  matches: [{venue: String, time: String, date: Date}], 
+  playerOfTheTournament: String
+});
+var  tournamentsModel=mongoose.model('tournaments', tournamentSchema);
+app.get("/tournaments", function(req, res){
+  tournamentsModel.find((err, trt) => {
+    if (err)
+        console.log(err)
+    else
+        console.log(trt);
+        res.render("tournamentsD.ejs", {tournaments: trt});
+  });
+});
+
+/*-----------Display PCB Awards------------------*/
+var pcbAwardsSchema = new mongoose.Schema({
+  name: String,
+  year: Date,
+  winner: String
+});
+var pcbAwardsModel=mongoose.model('pcbAwards', pcbAwardsSchema);
+app.get("/awards", function(req, res){
+  pcbAwardsModel.find((err, awrd) => {
+    if (err)
+        console.log(err)
+    else
+        console.log(awrd);
+        res.render("awardsD.ejs", {awards: awrd});
+  });
+});
+
+/*------------------Admin Side-----------------*/
+
+app.get("/admin", function (req, res) {
   res.sendFile(__dirname + "/admin/login.html");
 });
 
-//admin page
-app.get("/adminpage", function (req, res) {
-  res.sendFile(__dirname + "/admin/adminpage.html");
-});
-
 app.post("/adminpage", function (req, res) {
-  res.sendFile(__dirname + "/admin/adminpage.html");
-});
+  var e = req.body.email;
+  var p = req.body.password;
+  
 
-//players page
-app.get("/players", function (req, res) {
-  res.send("Hello reached player");
-});
-
-//category
-app.get("/create-category", function (req, res) {
-  res.sendFile(__dirname + "/admin/createCategory.html");
-});
-app.post("/create-category", function (req, res) {
-  res.send("<h2>CATEGORY HAS BEEN CREATED.</h2>");
-});
-
-app.get("/remove-category", function (req, res) {
-  res.sendFile(__dirname + "/admin/removeCategory.html");
-});
-app.post("/remove-category", function (req, res) {
-  res.send("<h2>CATEGORY HAS BEEN REMOVED.</h2>");
-});
-
-app.get("/allocate-category", function (req, res) {
-  res.sendFile(__dirname + "/admin/allocateCategory.html");
-});
-app.post("/allocate-category", function (req, res) {
-  res.send("<h2>CATEGORY HAS BEEN ALLOCATED TO THE PLAYER.</h2>");
-});
-
-app.get("/remove-player-category", function (req, res) {
-  res.sendFile(__dirname + "/admin/removePlayerCategory.html");
-});
-app.post("/remove-player-category", function (req, res) {
-  res.send("<h2>PLAYER HAS BEEN REMOVED FROM THE CATEGORY.</h2>");
+  if(e === "abdul@pcb.com" && p === "1234"){
+    res.sendFile(__dirname + "/admin/adminpage.html");
+  }
+  else
+  res.redirect("/admin");
+  
 });
 
 
-//squad
+/*---------------------Manage Squads----------------------*/
 app.get("/create-squad", function (req, res) {
   res.sendFile(__dirname + "/admin/squad/addSquad.html");
 });
+
+
 app.post("/create-squad", function (req, res) {
-  res.send("<h2>SQUAD HAS BEEN CREATED.</h2>");
+  var t = req.body.type;
+  var n  = req.body.noOfP;
+
+  var newSquad = new squadModel({ type: t, NoOfPlayers: n});
+  newSquad.save(function (err) {
+    if (err) 
+      return handleError(err);
+    else 
+      res.send("<h2>Successfully added the new Squad!</h2>");
+  });
 });
 
 app.get("/remove-squad", function (req, res) {
   res.sendFile(__dirname + "/admin/squad/removeSquad.html");
 });
 app.post("/remove-squad", function (req, res) {
-  res.send("<h2>SQUAD HAS BEEN REMOVED.</h2>");
+  var sq = req.body.type;
+  squadModel.deleteOne({ type: sq }, function (err) {
+    if(err) console.log(err);
+    else
+      res.send("<h2>Successfully Deleted</h2>");
+  });
+
 });
 
 app.get("/add-player-squad", function (req, res) {
   res.sendFile(__dirname + "/admin/squad/addPlayerSquad.html");
 });
 app.post("/add-player-squad", function (req, res) {
-  res.send("<h2>PLAYER HAS BEEN ADDED TO THE SQUAD.</h2>");
+  var n = req.body.name;
+  var shirt = req.body.shirtNo;
+  var sqd = req.body.squad;
+  var p = {name:n, shirtNo: shirt }
+
+  squadModel.findOneAndUpdate(
+    { type: sqd }, 
+    { $push: { players: p } },
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+             console.log(success);
+             res.send("<h2>Susccessfully Added the new Player</h2>");
+         }
+     });
 });
 
 app.get("/remove-player-squad", function (req, res) {
   res.sendFile(__dirname + "/admin/squad/removePlayerSquad.html");
 });
 app.post("/remove-player-squad", function (req, res) {
-  res.send("<h2>PLAYER HAS BEEN REMOVED FROM THE SQUAD.</h2>");
+  var n = req.body.name;
+  var shirt = req.body.shirtNo;
+  var sqd = req.body.squad;
+  //var p = {name:n, shirtNo: shirt }
+
+  squadModel.findOneAndUpdate(
+    { type: sqd }, 
+    { $pull: { players: {shirtNo: shirt} } },
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+             console.log(success);
+             res.send("<h2>Susccessfully Removed the Player</h2>");
+         }
+     });
 });
 
-//series
+/*-------------------------Manage Series--------------------*/
+
 app.get("/add-series", function (req, res) {
   res.sendFile(__dirname + "/admin/series/addSeries.html");
 });
 app.post("/add-series", function (req, res) {
+
+
   res.send("<h2>A NEW SERIES HAS BEEN ADDED.</h2>");
 });
 
@@ -212,6 +279,9 @@ app.get("/add-match-to-series", function (req, res) {
   res.sendFile(__dirname + "/admin/series/addMatchToSeries.html");
 });
 app.post("/add-match-to-series", function (req, res) {
+
+
+
   res.send("<h2>MATCH HAS BEEN ADDED TO THE SERIES.</h2>");
 });
 
@@ -220,7 +290,51 @@ app.get("/delete-series", function (req, res) {
 });
 
 app.post("/delete-series", function (req, res) {
+
+
   res.send("<h2>THE SERIES HAS BEEN DELETED.</h2>");
+});
+
+/*--------------------Manage Players Categories--------------------*/
+
+app.get("/create-category", function (req, res) {
+  res.sendFile(__dirname + "/admin/categories/createCategory.html");
+});
+
+app.post("/create-category", function (req, res) {
+  var name = req.body.catName;
+  var salary = req.body.salary;
+  console.log(name);
+  console.log(salary);
+  
+  res.send("<h2>CATEGORY HAS BEEN CREATED.</h2>");
+});
+
+app.get("/remove-category", function (req, res) {
+  res.sendFile(__dirname + "/admin//categories/removeCategory.html");
+});
+app.post("/remove-category", function (req, res) {
+
+
+  res.send("<h2>CATEGORY HAS BEEN REMOVED.</h2>");
+});
+
+app.get("/allocate-category", function (req, res) {
+  res.sendFile(__dirname + "/admin//categories/allocateCategory.html");
+});
+app.post("/allocate-category", function (req, res) {
+
+
+  res.send("<h2>CATEGORY HAS BEEN ALLOCATED TO THE PLAYER.</h2>");
+});
+
+app.get("/remove-player-category", function (req, res) {
+  res.sendFile(__dirname + "/admin//categories/removePlayerCategory.html");
+});
+app.post("/remove-player-category", function (req, res) {
+
+
+  res.send("<h2>PLAYER HAS BEEN REMOVED FROM THE CATEGORY.</h2>");
 });
 
 app.listen(3000, function () {

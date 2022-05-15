@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players</title>
+</head>
+<body>
+
+     <h1>Tournaments</h1>
+
+     <table border="1" width = "100%" style="align-items: center; margin-top: 100px;" >
+        <tr style="align-items: center;">
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Matches</th>
+          <th>Man of the Tournament</th>
+        </tr>
+        <% for (let t of tournaments) { %>
+    
+            <tr>
+                <td><%= t.startDate %> </td>
+                <td><%= t.endDate %></td>
+                <td><%= t.matches %></td>
+                <td><%= t.playerOfTheTournament %></td>
+              </tr>
+        
+            <% } %>
+
+
+      </table>
+   
+</body>
+</html>

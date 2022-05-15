@@ -190,62 +190,49 @@
         <div class="row pb-4 text-center">
           <div class="col-md-12">
             <h2>
-              <b> Manage Players Categories</b>
+              <b> Manage Series</b>
             </h2>
           </div>
         </div>
 
         <div class="row category-row">
           <div class="col-md-6">
-            <h3>Create a new Category</h3>
+            <h3>Add a new Series</h3>
             <form
-              action="/create-category"
+              action="/add-series"
               class="form-floating category-form"
               method="get"
             >
               <button type="submit" class="btn btn-lg category-button">
-                Create Category
+                Add Series
               </button>
             </form>
           </div>
 
           <div class="col-md-6">
-            <h3>Remove an already present Category</h3>
+            <h3>Add Match to a Series</h3>
             <form
-              action="/remove-category"
+              action="/add-match-to-series"
               class="form-floating category-form"
               method="get"
             >
               <button type="submit" class="btn btn-lg category-button">
-                Remove Category
+                Add Match
               </button>
             </form>
           </div>
         </div>
 
         <div class="row category-row">
-          <div class="col-md-6">
-            <h3>Allocate Category to a Player</h3>
+          <div class="col">
+            <h3>Delete a Series</h3>
             <form
-              action="/allocate-category"
+              action="/delete-series"
               class="form-floating category-form"
               method="get"
             >
               <button type="submit" class="btn btn-lg category-button">
-                Allocate Category
-              </button>
-            </form>
-          </div>
-
-          <div class="col-md-6">
-            <h3>Remove Player from a Category</h3>
-            <form
-              action="/remove-player-category"
-              class="form-floating category-form"
-              method="get"
-            >
-              <button type="submit" class="btn btn-lg category-button">
-                Remove Player
+                Delete Series
               </button>
             </form>
           </div>
@@ -329,49 +316,62 @@
         <div class="row pb-4 text-center">
           <div class="col-md-12">
             <h2>
-              <b> Manage Series</b>
+              <b> Manage Players Categories</b>
             </h2>
           </div>
         </div>
 
         <div class="row category-row">
           <div class="col-md-6">
-            <h3>Add a new Series</h3>
+            <h3>Create a new Category</h3>
             <form
-              action="/add-series"
+              action="/create-category"
               class="form-floating category-form"
               method="get"
             >
-              <button type="submit" class="btn btn-lg category-button">
-                Add Series
+              <button type="submit" class=" button btn btn-lg category-button">
+                Create Category
               </button>
             </form>
           </div>
 
           <div class="col-md-6">
-            <h3>Add Match to a Series</h3>
+            <h3>Remove an already present Category</h3>
             <form
-              action="/add-match-to-series"
+              action="/remove-category"
               class="form-floating category-form"
               method="get"
             >
               <button type="submit" class="btn btn-lg category-button">
-                Add Match
+                Remove Category
               </button>
             </form>
           </div>
         </div>
 
         <div class="row category-row">
-          <div class="col">
-            <h3>Delete a Series</h3>
+          <div class="col-md-6">
+            <h3>Allocate Category to a Player</h3>
             <form
-              action="/delete-series"
+              action="/allocate-category"
               class="form-floating category-form"
               method="get"
             >
               <button type="submit" class="btn btn-lg category-button">
-                Delete Series
+                Allocate Category
+              </button>
+            </form>
+          </div>
+
+          <div class="col-md-6">
+            <h3>Remove Player from a Category</h3>
+            <form
+              action="/remove-player-category"
+              class="form-floating category-form"
+              method="get"
+            >
+              <button type="submit" class="btn btn-lg category-button">
+                Remove Player
               </button>
             </form>
           </div>

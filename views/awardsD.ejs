@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players</title>
+</head>
+<body>
+
+     <h1>PCB Awards</h1>
+
+     <table border="1" width = "100%" style="align-items: center; margin-top: 100px;" >
+        <tr style="align-items: center;">
+          <th>Name</th>
+          <th>Year</th>
+          <th>Winner</th>
+         
+        </tr>
+        <% for (let a of awards) { %>
+    
+            <tr>
+                <td><%= a.name %> </td>
+                <td><%= a.year %></td>
+                <td><%= a.winner %></td>
+              </tr>
+        
+            <% } %>
+
+
+      </table>
+   
+</body>
+</html>

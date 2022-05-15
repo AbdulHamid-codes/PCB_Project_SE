@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players</title>
+</head>
+<body>
+
+     <h1>Series</h1>
+
+     <table border="1" width = "100%" style="align-items: center; margin-top: 100px;" >
+        <tr style="align-items: center;">
+          <th>Format</th>
+          <th>Host</th>
+          <th>Result</th>
+          <th>Man of the Series</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Matches</th>
+        </tr>
+        <% for (let s of series) { %>
+    
+            <tr>
+                <td><%= s.format %> </td>
+                <td><%=s.host %></td>
+                <td><%=s.result %></td>
+                <td><%=s.manOfTheSeries %></td>
+                <td><%=s.startDate %></td>
+                <td><%=s.endDate %></td>
+                <td><%=s.matches %></td>
+              </tr>
+        
+            <% } %>
+
+
+      </table>
+   
+</body>
+</html>

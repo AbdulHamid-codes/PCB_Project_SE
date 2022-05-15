@@ -1,0 +1,109 @@
+
+// Player
+db.players.insertOne(
+    {
+        name: "Baber Azam",
+        DOB: "1996-02-14",
+        shirtNo: 7,
+        matchesPlaye: 100,
+        totalRuns: 4000,
+        totalWickets: 5
+    }
+)
+db.players.insertOne(
+    {
+        name: "Shaheen Shah",
+        DOB: "1999-02-14",
+        shirtNo: 8,
+        matchesPlaye: 80,
+        totalRuns: 400,
+        totalWickets: 106
+    }
+)
+db.players.insertOne(
+    {
+        name: "Muhammad Rizwan",
+        DOB: "1998-02-14",
+        shirtNo: 17,
+        matchesPlaye: 90,
+        totalRuns: 2800,
+        totalWickets: 0
+    }
+)
+
+// Squad
+db.squads.insertOne(
+    {
+        NoOfPlayers: 15,
+        type: "T20I",
+        players: [
+            {
+                name: "Baber Azam",
+                DOB: "1996-02-14",
+                shirtNo: 7,
+                matchesPlaye: 100,
+                totalRuns: 4000,
+                totalWickets: 5 
+            }
+        ]
+    }
+)
+
+
+// matches
+
+db.matches.insertOne(
+    {
+        venue: "National Stadium Karachi",
+        time: "2:00pm",
+        date: "2015-02-14"  
+    }
+)
+
+//Series
+
+db.series.insertOne(
+    {
+        format: "ODI",
+        host: "Pakistan",
+        result: "Pak Won",
+        manOfTheSeries: "Baber Azam",
+        startDate: "2015-02-14",
+        endDate: "2015-05-14",
+        matches: [
+            {
+                venue: "National Stadium Karachi",
+                time: "2:00pm",
+                date: "2015-02-14"
+            }
+        ]
+
+    }
+)
+
+// Tournament
+
+db.tournaments.insertOne(
+    {
+        startDate: "2015-02-14",
+        endDate: "2015-02-14",
+        matches: [
+            {
+                venue: "National Stadium Karachi",
+                time: "2:00pm",
+                date: "2015-02-14"
+            }
+        ],
+        playerOfTheTournament: "Rizwan"
+    }
+)
+
+// PCB awards
+
+db.pcbAwards.insertOne(
+    {
+        name: "Player of the Year",
+        year: "2015-02-14",
+        winner: "Shaheen Shah"
+    }
+)
