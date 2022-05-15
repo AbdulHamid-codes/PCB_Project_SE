@@ -270,19 +270,42 @@ app.get("/add-series", function (req, res) {
   res.sendFile(__dirname + "/admin/series/addSeries.html");
 });
 app.post("/add-series", function (req, res) {
-
-
-  res.send("<h2>A NEW SERIES HAS BEEN ADDED.</h2>");
+  var f = req.body.format;
+  var h = req.body.host;
+  var sd = req.body.sDate;
+  var ed = req.body.eDate;
+  var newSeries = new seriesModel({ format: f, host: h, startDate: sd, endDate: ed});
+  newSeries.save(function (err) {
+    if (err) 
+      return handleError(err);
+    else 
+      res.send("<h2>Successfully added the new Series!</h2>");
+  });
 });
 
 app.get("/add-match-to-series", function (req, res) {
   res.sendFile(__dirname + "/admin/series/addMatchToSeries.html");
 });
 app.post("/add-match-to-series", function (req, res) {
+  var f = req.body.format;
+  var sd = req.body.sDate;
+  var mVenue = req.body.venue;
+  var mDate = req.body.mDate;
+  var mt = req.body.mTime;
 
+  var m = {venue: mVenue, time: mt, date: mDate}
 
-
-  res.send("<h2>MATCH HAS BEEN ADDED TO THE SERIES.</h2>");
+  seriesModel.findOneAndUpdate(
+    { format: f, startDate: sd }, 
+    { $push: { matches: m } },
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+             console.log(success);
+             res.send("<h2>Susccessfully Added the Match!</h2>");
+         }
+     });
 });
 
 app.get("/delete-series", function (req, res) {
@@ -290,9 +313,15 @@ app.get("/delete-series", function (req, res) {
 });
 
 app.post("/delete-series", function (req, res) {
+  var f = req.body.format;
+  var h = req.body.host;
+  var sd = req.body.sDate;
+  seriesModel.deleteOne({ format: f, host: h, startDate: sd }, function (err) {
+    if(err) console.log(err);
+    else
+      res.send("<h2>Successfully Deleted</h2>");
+  });
 
-
-  res.send("<h2>THE SERIES HAS BEEN DELETED.</h2>");
 });
 
 /*--------------------Manage Players Categories--------------------*/
