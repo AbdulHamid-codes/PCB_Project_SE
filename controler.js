@@ -198,6 +198,10 @@ app.post("/create-squad", function (req, res) {
   var t = req.body.type;
   var n  = req.body.noOfP;
 
+  // Validation
+  if ( n < 11 || n > 30){
+    res.redirect(__dirname + "/admin/squad/addSquad.html")
+  }
   var newSquad = new squadModel({ type: t, NoOfPlayers: n});
   newSquad.save(function (err) {
     if (err) 
@@ -226,6 +230,11 @@ app.get("/add-player-squad", function (req, res) {
 app.post("/add-player-squad", function (req, res) {
   var n = req.body.name;
   var shirt = req.body.shirtNo;
+
+  // Validation
+  if ( shirt < 1 || shirt > 999){
+    res.redirect(__dirname + "/admin/squad/addPlayerSquad.html")
+  }
   var sqd = req.body.squad;
   var p = {name:n, shirtNo: shirt }
 
@@ -323,6 +332,64 @@ app.post("/delete-series", function (req, res) {
   });
 
 });
+
+/*------------------Manage Tournaments----------------------------*/
+
+app.get("/add-tournament", function (req, res) {
+  res.sendFile(__dirname + "/admin/tournaments/addTournament.html");
+});
+
+app.post("/add-tournament", function (req, res) {
+  var sd = req.body.sDate;
+  var ed = req.body.eDate;
+  var newTournament = new tournamentsModel({ startDate: sd, endDate: ed});
+  newTournament.save(function (err) {
+    if (err) 
+      return handleError(err);
+    else 
+      res.send("<h2>Successfully added the new Tournament!</h2>");
+  });
+});
+
+app.get("/remove-tournament", function (req, res) {
+  res.sendFile(__dirname + "/admin//tournaments/removeTournament.html");
+});
+app.post("/remove-tournament", function (req, res) {
+  var sd = req.body.sDate;
+  var ed = req.body.eDate;
+  tournamentsModel.deleteOne({  startDate: sd, endDate: ed }, function (err) {
+    if(err) console.log(err);
+    else
+      res.send("<h2>Successfully Deleted</h2>");
+  });
+
+});
+
+app.get("/add-match-to-tournament", function (req, res) {
+  res.sendFile(__dirname + "/admin/tournaments/addMatchToTournament.html");
+});
+app.post("/add-match-to-tournament", function (req, res) {
+  var sd = req.body.tsd;
+  var ed = req.body.ted;
+  var mVenue = req.body.venue;
+  var mDate = req.body.mDate;
+  var mt = req.body.mTime;
+
+  var m = {venue: mVenue, time: mt, date: mDate}
+
+  tournamentsModel.findOneAndUpdate(
+    { stardDate: sd, endDate: ed }, 
+    { $push: { matches: m } },
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+             console.log(success);
+             res.send("<h2>Susccessfully Added the Match!</h2>");
+         }
+     });
+});
+
 
 /*--------------------Manage Players Categories--------------------*/
 

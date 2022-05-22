@@ -380,7 +380,7 @@
     </div>
 
     <!-- manage tournament section  -->
-    <!-- <div class="tournaments-section admin-section py-5">
+    <div class="tournaments-section admin-section py-5">
       <div class="container">
         <div class="row pb-4 text-center">
           <div class="col-md-12">
@@ -392,60 +392,42 @@
 
         <div class="row category-row">
           <div class="col-md-6">
-            <h3>Create a new Squad</h3>
-            <form action="/create-squad" class="form-floating category-form " method="get">          
+            <h3>Add New Tournament</h3>
+            <form action="/add-tournament" class="form-floating category-form " method="get">          
                 <button type="submit" class="btn btn-lg category-button">
-                    Create Squad
+                    Add Tournament
                    </button>
                 </form>
 
           </div>
             
           <div class="col-md-6">
-            <h3>Remove an already present Squad</h3>
-            <form action="/remove-squad" class="form-floating category-form " method="get">
+            <h3>Delete a Tournament</h3>
+            <form action="/remove-tournament" class="form-floating category-form " method="get">
                <button type="submit" class="btn btn-lg category-button">
-                    Remove Squad
+                    Remove Tournament
                    </button>
                 </form>
-
           </div>
-            
-        </div>
-
-        <div class="row category-row">
-          <div class="col-md-6">
-            <h3>Add Player to a Squad</h3>
-            <form action="/add-player-squad" class="form-floating category-form " method="get">          
+          <div class="row category-row">
+            <div class="col">
+              <h3>Asdd a Match to Tournament</h3>
+              <form
+                action="/add-match-to-tournament"
+                class="form-floating category-form"
+                method="get"
+              >
                 <button type="submit" class="btn btn-lg category-button">
-                    Add Player
-                   </button>
-                </form>
-
+                  Add Match
+                </button>
+              </form>
+            </div>
           </div>
-            
-          <div class="col-md-6">
-            <h3>Remove Player from a Squad</h3>
-            <form action="/remove-player-squad" class="form-floating category-form " method="get">
-               <button type="submit" class="btn btn-lg category-button">
-                    Remove Player
-                   </button>
-                </form>
-
-          </div>
-            
         </div>
-  
       </div>
-    </div> -->
+    </div> 
 
-    <!-- <label for="create-category">Category Name :</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="create-category"
-                  placeholder="Enter a category name"
-                /> -->
+ 
 
     <!-- section before footer  -->
 
